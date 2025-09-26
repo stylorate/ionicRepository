@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-tab2',
@@ -8,6 +9,14 @@ import { Component } from '@angular/core';
 })
 export class Tab2Page {
 
-  constructor() {}
+  constructor(private alertController: AlertController) {}
 
+  async mostrarMensaje() {
+    const alert = await this.alertController.create({
+      header: '¡Hola!',
+      message: 'Mensaje desde app Hibrida',
+      buttons: ['OK']
+    });
+    await alert.present();
+  }
 }
